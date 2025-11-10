@@ -20,6 +20,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playGame() {
+
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === computerChoice) {
             console.log(`It is a tie! You both chose ${computerChoice}!`);
@@ -46,33 +47,14 @@ function playGame() {
         }
     }
 
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log(`Your score: ${humanScore}, Computer Score: ${computerScore}`)
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log(`Your score: ${humanScore}, Computer Score: ${computerScore}`)
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log(`Your score: ${humanScore}, Computer Score: ${computerScore}`)
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log(`Your score: ${humanScore}, Computer Score: ${computerScore}`)
-
-    humanSelection = getHumanChoice();
-    computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log(`Your score: ${humanScore}, Computer Score: ${computerScore}`)
+    let humanSelection;
+    let computerSelection;
+    for (let round = 0; round < 5; round++) {
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+        console.log(`Your score: ${humanScore}, Computer Score: ${computerScore}`)
+    }
 }
-
 playGame();
-console.log(`Your final scores: ${humanScore}, Computer final Score: ${computerScore}`);
-
-
+console.log(`Your final scores: ${humanScore}, Computer final Score: ${computerScore}`)；
