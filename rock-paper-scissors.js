@@ -21,14 +21,14 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-        alert(`It is a tie! You both chose ${computerChoice}!`);
+        alert(`It is a tie! You both chose ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!`);
     }
     else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice == "scissors" && computerChoice === "paper")
     ) {
-        alert(`You win! ${humanChoice} beats ${computerChoice}!`);
+        alert(`You win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}!`);
         humanScore++;
     }
     else if (
@@ -36,7 +36,7 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "paper" && computerChoice === "scissors") ||
         (humanChoice === "scissors" && computerChoice === "rock")
     ) {
-        alert(`You lose! ${computerChoice} beats ${humanChoice}!`);
+        alert(`You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}!`);
         computerScore++;
     }
     else {
@@ -47,7 +47,7 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     for (let round = 1; round <= 5; round++) {
-        console.log(`\n--- Round rock${round} ---`);
+        console.log(`\n--- Round ${round} ---`);
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
 
