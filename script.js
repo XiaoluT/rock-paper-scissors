@@ -40,6 +40,7 @@ function playRound(humanChoice, computerChoice) {
     if (checkWinner()) return;
 
     if (humanChoice === computerChoice) {
+        resultDiv.className = "tie";
         resultDiv.textContent = `It is a tie! You both chose ${computerChoice}.`;
     }
     else if (
@@ -48,11 +49,13 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         humanScore++;
+        resultDiv.className = "win";
         resultDiv.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
 
     }
     else {
         computerScore++;
+        resultDiv.className = "lose";
         resultDiv.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
     }
 
@@ -81,6 +84,8 @@ resetBtn.addEventListener("click", () => {
     humanScore = 0;
     computerScore = 0;
     updateScore();
+
+    resultDiv.className = "reset-message";
     resultDiv.textContent = "New game started!";
 })
 
